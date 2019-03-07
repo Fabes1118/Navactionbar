@@ -63,20 +63,20 @@ public class MainActivity extends AppCompatActivity {
         {selectItem(0);
         }
 
-        //drawerToggle = new ActionBarDrawerToggle(this, drawerLayout,R.string.open_drawer,R.string.close_drawer);
-        //{
-         //public void onDrawerClosed(View view)
-        //{
-        //super.onDrawerClosed(view);
-        //invalidateOptionsMenu();
-        //}
+        drawerToggle = new ActionBarDrawerToggle(this, drawerLayout,R.string.open_drawer,R.string.close_drawer);
+        {
+            public void onDrawerClosed(View view)
+        {
+        super.onDrawerClosed(view);
+        invalidateOptionsMenu();
+        }
 
-        //public void onDrawerOpened(View view)
-        //{
-        //super.onDrawerClosed(view);
+        public void onDrawerOpened(View view)
+        {
+        super.onDrawerClosed(view);
 
-        //}
-        //};
+        }
+        };
         drawerLayout.addDrawerListener(drawerToggle);
 
         getSupportFragmentManager().addOnBackStackChangedListener(new FragmentManager.OnBackStackChangedListener() {
