@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
 
         titles = getResources().getStringArray(R.array.Titles);
 
-        drawerlist = (ListView)findViewById(R.id.drawer);
+        drawerlist = (ListView) findViewById(R.id.drawer);
 
         ArrayAdapter<String> adapter = new ArrayAdapter <String>(this, android.R.layout.simple_list_item_1, titles);
 
@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
 
         drawerLayout = (DrawerLayout)findViewById(R.id.drawerlayout);
 
-        drawerlist.setOnItemClickListener(new DrawerItemOnClickListerner());
+        drawerlist.setOnItemClickListener(new DrawerItemClickListener() );
 
         if (savedInstanceState != null){
             currentPosition = savedInstanceState.getInt("position");
@@ -113,16 +113,16 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    private class DrawerItemOnClickListerner implements ListView.OnItemClickListener{
+    private class DrawerItemClickListener implements ListView.OnItemClickListener{
         @Override
-        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
             selectItem(position);
         }
     }
 
     @Override
     public boolean onCreateOptionsMenu (Menu menu){
-        getMenuInflater().inflate(R.menu.menu_main,menu);
+        getMenuInflater().inflate(R.menu.menu_main, menu);
         return super.onCreateOptionsMenu(menu);
     }
 
@@ -133,13 +133,12 @@ public class MainActivity extends AppCompatActivity {
 
         switch(position){
             case 1: fragment = new PageOneFragment();
-            break;
+             break;
             case 2: fragment = new PageTwoFragment();
-            break;
+             break;
             case 3: fragment = new PageThreeFragment();
-            break;
+             break;
             default: fragment = new TopLevelFragment();
-            break;
         }
 
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
