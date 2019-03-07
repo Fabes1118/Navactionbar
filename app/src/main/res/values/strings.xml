@@ -1,0 +1,36 @@
+<resources>
+    <string name="app_name">Navactionbar</string>
+
+    <string name="title_top">first real app</string>
+
+    <string-array name="PageThree">
+        <item>SQL</item>
+        <item>PHP</item>
+        <item>C#</item>
+        <item>swift</item>
+    </string-array>
+
+    <string-array name="Titles">
+        <item>Home</item>
+        <item>Fabian</item>
+        <item>Fabian</item>
+        <item>Programming Languages</item>
+    </string-array>
+
+    <string name="open_drawer">Open drawer</string>
+    <string name="close_drawer">Close drawer</string>
+    <string name="action_settings">Action settings</string>
+    <string name="tick">Accessibility</string>
+
+    <string name="TopLevel1">Tech Team</string>
+    <string name="TopLevel2">Tech Team</string>
+
+
+    <string name="P11">Fabian</string>
+    <string name="P12">This is another description Fabian he likes:/n
+    /n-bacon
+    /n-Vaping
+    /n-Chocholate</string>
+
+
+</resources>
