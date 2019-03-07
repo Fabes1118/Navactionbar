@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
 
         drawerLayout = (DrawerLayout)findViewById(R.id.drawerlayout);
 
-        drawerlist.setOnClickListener((View.OnClickListener) new DrawerItemOnClickListerner());
+        drawerlist.setOnItemClickListener(new DrawerItemOnClickListerner());
 
         if (savedInstanceState != null){
             currentPosition = savedInstanceState.getInt("position");
@@ -64,19 +64,19 @@ public class MainActivity extends AppCompatActivity {
         }
 
         drawerToggle = new ActionBarDrawerToggle(this, drawerLayout,R.string.open_drawer,R.string.close_drawer);
-        {
-            public void onDrawerClosed(View view)
-        {
-        super.onDrawerClosed(view);
-        invalidateOptionsMenu();
-        }
+        //*{
+        //* public void onDrawerClosed(View view)
+        //*{
+        //*super.onDrawerClosed(view);
+        //*invalidateOptionsMenu();
+        //*}
 
-        public void onDrawerOpened(View view)
-        {
-        super.onDrawerClosed(view);
+        //*public void onDrawerOpened(View view)
+        //*{
+        //*super.onDrawerClosed(view);
 
-        }
-        };
+        //*}
+        //*};
         drawerLayout.addDrawerListener(drawerToggle);
 
         getSupportFragmentManager().addOnBackStackChangedListener(new FragmentManager.OnBackStackChangedListener() {
