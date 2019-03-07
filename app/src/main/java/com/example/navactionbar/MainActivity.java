@@ -17,6 +17,8 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.support.v7.widget.Toolbar;
 
+import java.util.Objects;
+
 public class MainActivity extends AppCompatActivity {
 
     private String [] titles;
@@ -32,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Toolbar toolbar = (Toolbar)findViewById(R.id.toolbar);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         actionBar = getSupportActionBar();
@@ -47,21 +49,26 @@ public class MainActivity extends AppCompatActivity {
 
         drawerlist = (ListView) findViewById(R.id.drawer);
 
-        ArrayAdapter<String> adapter = new ArrayAdapter <String>(this, android.R.layout.simple_list_item_1, titles);
+        ArrayAdapter <String> adapter = new ArrayAdapter <String>(this, android.R.layout.simple_list_item_1, titles);
 
         drawerlist.setAdapter(adapter);
 
-        drawerLayout = (DrawerLayout)findViewById(R.id.drawerlayout);
+        drawerLayout = findViewById(R.id.drawerlayout);
 
-        drawerlist.setOnItemClickListener(new DrawerItemClickListener() );
+        drawerlist.setOnItemClickListener(new DrawerItemClickListener());
 
-        if (savedInstanceState != null){
+        if (savedInstanceState != null)
+        {
             currentPosition = savedInstanceState.getInt("position");
             setActionBarTitle(currentPosition);
         }
+
         else
-        {selectItem(0);
-        }
+            {
+                selectItem(0);
+            }
+
+
 
         drawerToggle = new ActionBarDrawerToggle(this, drawerLayout,R.string.open_drawer,R.string.close_drawer) {
 
@@ -77,7 +84,8 @@ public class MainActivity extends AppCompatActivity {
 
 
         };
-        drawerLayout.addDrawerListener(drawerToggle);
+
+            drawerLayout.addDrawerListener(drawerToggle);
 
         getSupportFragmentManager().addOnBackStackChangedListener(new FragmentManager.OnBackStackChangedListener() {
             @Override
@@ -121,28 +129,38 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
+    public void onSaveInstanceState(Bundle state){
+        super.onSaveInstanceState(state);
+        state.putInt("position",currentPosition);
+    }
+
+    @Override
     public boolean onCreateOptionsMenu (Menu menu){
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return super.onCreateOptionsMenu(menu);
     }
 
-    private void selectItem(int position){
+    private void selectItem(int position) {
         currentPosition = position;
 
         Fragment fragment;
 
-        switch(position){
-            case 1: fragment = new PageOneFragment();
-             break;
-            case 2: fragment = new PageTwoFragment();
-             break;
-            case 3: fragment = new PageThreeFragment();
-             break;
-            default: fragment = new TopLevelFragment();
+        switch (position) {
+            case 1:
+                fragment = new PageOneFragment();
+                break;
+            case 2:
+                fragment = new PageTwoFragment();
+                break;
+            case 3:
+                fragment = new PageThreeFragment();
+                break;
+            default:
+                fragment = new TopLevelFragment();
         }
 
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-        ft.replace(R.id.content_frame,fragment,"visible_fragment");
+        ft.replace(R.id.content_frame, fragment, "visible_fragment");
 
         ft.addToBackStack(null);
 
@@ -150,11 +168,10 @@ public class MainActivity extends AppCompatActivity {
 
         setActionBarTitle(position);
 
-
         drawerLayout.closeDrawer(drawerlist);
-
-
     }
+
+
 
     private void  setActionBarTitle(int position){
 
@@ -166,28 +183,26 @@ public class MainActivity extends AppCompatActivity {
         {
             title = titles[position];
         }
-        getSupportActionBar().setTitle(title);
+        Objects.requireNonNull(getSupportActionBar()).setTitle(title);
     }
 
     @Override
-    protected void onPostCreate (Bundle savedInstanceState){
+    protected void onPostCreate (Bundle savedInstanceState)
+    {
         super.onPostCreate(savedInstanceState);
         drawerToggle.syncState();
     }
 
     @Override
-    public void onConfigurationChanged (Configuration config){
+    public void onConfigurationChanged (Configuration config)
+        {
         super.onConfigurationChanged(config);
         drawerToggle.onConfigurationChanged(config);
     }
 
 
 
-    @Override
-    public void onSaveInstanceState(Bundle state){
-        super.onSaveInstanceState(state);
-        state.getInt("position",currentPosition);
-    }
+
 
     @Override
     public boolean onOptionsItemSelected (MenuItem item){
@@ -195,6 +210,7 @@ public class MainActivity extends AppCompatActivity {
         if(drawerToggle.onOptionsItemSelected(item)){
             return true;
         }
+
 
         switch (item.getItemId()){
             case R.id.settings:
