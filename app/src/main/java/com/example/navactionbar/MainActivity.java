@@ -170,7 +170,7 @@ public class MainActivity extends AppCompatActivity {
 
         drawerLayout.closeDrawer(drawerlist);
     }
-
+//test//
 
 
     private void  setActionBarTitle(int position){
