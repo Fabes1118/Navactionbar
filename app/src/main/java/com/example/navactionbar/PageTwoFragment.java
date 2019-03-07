@@ -22,14 +22,14 @@ public class PageTwoFragment extends Fragment {
         View view = getView();
 
         if (view != null) {
-            TextView title = (TextView) view.findViewById(R.id.textTitle);
-            TextView desc = (TextView) view.findViewById(R.id.textDesc);
-            ImageView img = (ImageView) view.findViewById(R.id.imageView);
+            TextView title = (TextView)view.findViewById(R.id.textTitle);
+            TextView desc = (TextView)view.findViewById(R.id.textDesc);
+            ImageView img = (ImageView)view.findViewById(R.id.imageView);
 
             title.setText(R.string.P11);
             desc.setText(R.string.P12);
             img.setImageResource(R.drawable.playas);
-            img.setContentDescription("title");
+            img.setContentDescription("Image");
         }
     }
 }
