@@ -23,14 +23,14 @@
     <string name="tick">Accessibility</string>
 
     <string name="TopLevel1">Tech Team</string>
-    <string name="TopLevel2">Tech Team</string>
+    <string name="TopLevel2">Our Mission</string>
 
 
     <string name="P11">Fabian</string>
     <string name="P12">This is another description Fabian he likes:/n
-    /n-bacon
-    /n-Vaping
-    /n-Chocholate</string>
+    \n-bacon
+    \n-Vaping
+    \n-Chocholate</string>
 
 
 </resources>
