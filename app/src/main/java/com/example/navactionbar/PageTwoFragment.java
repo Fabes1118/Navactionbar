@@ -22,8 +22,8 @@ public class PageTwoFragment extends Fragment {
         View view = getView();
 
         if (view != null) {
-            TextView title = (TextView) view.findViewById(R.id.textView2);
-            TextView desc = (TextView) view.findViewById(R.id.textdesc);
+            TextView title = (TextView) view.findViewById(R.id.textTitle);
+            TextView desc = (TextView) view.findViewById(R.id.textDesc);
             ImageView img = (ImageView) view.findViewById(R.id.imageView);
 
             title.setText(R.string.P11);
